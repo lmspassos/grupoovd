@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Cada <banner> tem duas imagens:
+	- <desktop>: usada em telas largas (proporção ~980x360, paisagem)
+	- <mobile>: usada em telas pequenas (proporção 4:5, mais vertical)
+
+	TEMPORÁRIO: <mobile> ainda aponta para o mesmo arquivo do <desktop>,
+	só que exibido cortado (object-fit:cover) na proporção 4:5 via CSS
+	(--banner-ratio em css/home.css), até chegarem as imagens verticais
+	definitivas. Quando tiver os arquivos verticais, é só trocar o nome
+	dentro de <mobile> — nenhum código precisa mudar.
+-->
+<banners>
+
+	<banner>
+		<desktop><![CDATA[banner_0000.png]]></desktop>
+		<mobile><![CDATA[banner_0000.png]]></mobile>
+	</banner>
+
+	<banner>
+		<desktop><![CDATA[banner_06.jpg]]></desktop>
+		<mobile><![CDATA[banner_06.jpg]]></mobile>
+	</banner>
+
+	<banner>
+		<desktop><![CDATA[banner_01.jpg]]></desktop>
+		<mobile><![CDATA[banner_01.jpg]]></mobile>
+	</banner>
+
+	<banner>
+		<desktop><![CDATA[banner_02.jpg]]></desktop>
+		<mobile><![CDATA[banner_02.jpg]]></mobile>
+	</banner>
+
+	<banner>
+		<desktop><![CDATA[banner_03.jpg]]></desktop>
+		<mobile><![CDATA[banner_03.jpg]]></mobile>
+	</banner>
+
+</banners>

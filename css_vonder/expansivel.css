@@ -1,0 +1,59 @@
+.FAQ { 
+    vertical-align: top; 
+    height:auto !important; 
+}
+.list {
+    display:none; 
+    height:auto;
+    margin:0;
+    float: left;
+}
+.show {
+    display: none; 
+}
+.hide:target + .show {
+    display: inline; 
+}
+.hide:target {
+    display: none; 
+}
+.hide:target ~ .list {
+    display:inline; 
+}
+
+/*style the (+) and (-) */
+.hide, .show {
+	position:absolute;
+    width: 686px;
+	left:50%;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+	background-image: url(degrade_branco.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+    margin-right: 0;
+	margin-left:-230px;
+    float: left;
+    margin-bottom: 25px;
+	margin-top:80px;
+	padding-top:30px;
+}
+
+.hide:hover, .show:hover {
+    color: #757575;
+    text-decoration: none;
+    margin-bottom: 25px;	
+}
+
+.list{
+    height:auto;
+    margin:0;
+	font-size: 10pt;
+}
+.question {
+    float: left;
+    height: auto;
+    margin-bottom: 25px;
+	font-size: 10pt;
+}

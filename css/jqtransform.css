@@ -1,0 +1,125 @@
+form.jqtransformdone label{
+	margin-top:4px;
+	margin-right: 8px;
+	display: block;
+	float:left;
+}
+form.jqtransformdone div.rowElem{
+	clear:both;
+	padding:4px 0px;
+}
+
+
+/* -------------
+ * Selects
+ * ------------- */
+.jqTransformSelectWrapper {
+	width: 45px;
+	position:relative;
+	height: 22px;
+	background: var(--color-white);
+	float:left;
+}
+
+.jqTransformSelectWrapper div span {
+	
+	
+	float: none;
+	position: absolute;
+	white-space: nowrap;
+	height: 22px;
+	line-height: 15px;
+	padding:3px 5px;
+	overflow: hidden;
+	color:var(--color-text-light);
+	font-size: 12px;
+	cursor:pointer;
+	font-family:Verdana;
+	/*border: 1px solid var(--color-gray-600);*/
+/*	border-right: none;*/
+}
+
+
+.selectContato .jqTransformSelectWrapper div span {
+	
+	float: none;
+	position: absolute;
+	white-space: nowrap;
+	height: 17px;
+	line-height: 15px;
+	padding:3px 5px;
+	overflow: hidden;
+	color:var(--color-text-light);
+	font-size:13px;
+	 font-family:Verdana;
+	cursor:pointer;
+	background:var(--color-gray-input-bg);
+	/*border: 1px solid var(--color-gray-600);*/
+/*	border-right: none;*/
+}
+
+
+
+.jqTransformSelectWrapper  a.jqTransformSelectOpen {
+	display: block;
+	position: absolute;
+	right: 0px;
+	width: 22px;
+	height: 22px;
+	font-family:Verdana;
+	background:var(--color-white);
+}
+
+.jqTransformSelectWrapper  a.jqTransformSelectOpen::after {
+	content:"";
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:6px;
+	height:6px;
+	border-right:2px solid var(--color-text-light);
+	border-bottom:2px solid var(--color-text-light);
+	transform:translate(-50%, -65%) rotate(45deg);
+}
+
+.jqTransformSelectWrapper ul {
+	position: absolute;
+	width: 43px;
+	top: 21px;
+	left: -1px;
+	list-style: none;
+	background-color: var(--color-white);
+	border: solid 1px var(--color-gray-600);
+	display: none;
+	margin: 0px;
+	padding: 0px;
+	height: 160px;
+	overflow: auto;
+	overflow-y: auto;
+	z-index:10;
+}
+
+.jqTransformSelectWrapper ul a {
+	display: block;
+	padding: 5px;
+	text-decoration: none;
+	color:var(--color-text-light);
+	background-color: var(--color-white);
+	font-size: 12px;
+	font-family:Verdana;
+}
+
+.jqTransformSelectWrapper ul a.selected {
+	background: var(--color-gray-select-hover);
+	color: var(--color-text-dark);
+}
+
+.jqTransformSelectWrapper ul a:hover, .jqTransformSelectWrapper ul a.selected:hover {
+	background:var(--color-yellow);
+	color: var(--color-black);
+}
+
+/* -------------
+ * Hidden - used to hide the original form elements
+ * ------------- */
+.jqTransformHidden {display: none;}

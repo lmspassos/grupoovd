@@ -1,0 +1,9 @@
+.claude/
+Thumbs.db
+.DS_Store
+
+# Mídia pesada (kits de imprensa, downloads, backups antigos) — hospedados
+# separadamente em produção, não faz sentido versionar no git.
+/presskit/
+/download/
+/includes/arquivos/

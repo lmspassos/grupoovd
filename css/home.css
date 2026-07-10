@@ -1,0 +1,96 @@
+/* HOME — layout moderno (Grid/Flexbox + CSS scroll-snap)
+   Convive com ovd.css: tipografia, cores (:root em ovd.css) e componentes
+   compartilhados (header, footer, boxMarcas, botões .linkMais, sprites de
+   carrossel) continuam vindo de lá. Este arquivo cuida só do layout da home.
+========================================================================== */
+
+:root {
+	--content-max: 980px;
+	--banner-ratio: 980/360;		/* desktop: paisagem, igual à imagem original */
+}
+
+@media (max-width: 1000px) {
+	:root {
+		--banner-ratio: 4/5;		/* mobile: mais vertical (ajuste aqui se o material vier em outra proporção) */
+	}
+}
+
+/* BANNER
+   #banner é irmão do #main (não filho — ver index.html), então não herda
+   o padding lateral dele nem precisa de margem negativa/vw pra escapar
+   dele: width:100% já basta pra cobrir a tela inteira, em qualquer
+   tamanho de tela.
+------------------------------------------------------------------------*/
+#banner									{ width:100%; margin:0 0 20px;}
+
+.banner									{ position:relative; border-bottom:1px solid var(--color-gray-200);}
+
+.banner__track							{ position:relative; aspect-ratio:var(--banner-ratio); min-height:180px; overflow:hidden; touch-action:pan-y;}
+
+/* Acima de 980px de largura, a altura NÃO acompanha mais a largura da tela
+   (senão o banner ficaria gigante em monitores largos) — trava na mesma
+   altura que ele tinha desenhado para 980px (980/360 = 360px) e a imagem
+   corta as laterais via object-fit:cover (.banner__slide img). */
+@media (min-width: 1001px) {
+	.banner__track						{ aspect-ratio:auto; height:360px;}
+}
+
+.banner__slide							{ position:absolute; inset:0; transform:translateX(100%); transition:transform .5s ease;}
+.banner__slide.is-active				{ transform:translateX(0);} /* fallback sem JS: só o slide 1 aparece */
+.banner__slide picture					{ display:block; width:100%; height:100%;}
+.banner__slide img						{ display:block; width:100%; height:100%; object-fit:cover;}
+
+.banner__dots							{ position:absolute; left:50%; bottom:15px; transform:translateX(-50%); display:flex; gap:8px; z-index:2;}
+.banner__dot							{ width:12px; height:12px; padding:0; cursor:pointer; border-radius:50%; background:var(--color-dot-inactive); border:1px solid var(--color-shadow-light);}
+.banner__dot.is-active					{ background:var(--color-yellow); border-color:var(--color-yellow-hover);}
+
+.banner__arrow							{ display:flex; align-items:center; justify-content:center; position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; padding:0; border:none; border-radius:50%; background:rgba(255,255,255,.4); backdrop-filter:blur(2px); cursor:pointer; z-index:3; transition:background .15s ease;}
+.banner__arrow:hover					{ background:rgba(255,255,255,.7);}
+.banner__arrow--prev					{ left:15px;}
+.banner__arrow--next					{ right:15px;}
+.banner__arrow::after					{ content:""; width:10px; height:10px; border-top:2px solid var(--color-text); border-right:2px solid var(--color-text);}
+.banner__arrow--prev::after			{ transform:rotate(-135deg); margin-left:4px;}
+.banner__arrow--next::after			{ transform:rotate(45deg); margin-right:4px;}
+
+@media (max-width: 600px) {
+	.banner__arrow						{ width:34px; height:34px;}
+}
+
+/* GRID DE DESTAQUES (Grupo OVD / Parceiros / Trabalhe Conosco)
+------------------------------------------------------------------------*/
+.home-grid								{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:40px; max-width:var(--content-max); margin:0 auto; padding:20px 0 0;}
+
+.home-card								{ display:flex; flex-direction:column; padding-bottom:20px;}
+.home-card__body						{ min-height:220px;}
+.home-card__body > a > img				{ display:block; margin:0 0 25px;}
+.home-card__body p						{ text-align:left; margin-bottom:25px;}
+.home-card .linkMais					{ margin-top:auto; display:block; width:100%; box-sizing:border-box; text-align:center; padding:10px 20px; background:var(--color-yellow); color:var(--color-black); border-radius:6px; transition:background .15s ease;}
+.home-card .linkMais:hover				{ background:var(--color-yellow-hover); color:var(--color-black);}
+
+/* CARROSSEL DE PARCEIROS (reaproveita .parceirosHome/.btnNext/.btnPrev de ovd.css) */
+.parceirosContent						{ display:flex; gap:10px; width:230px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;}
+.parceirosContent::-webkit-scrollbar	{ display:none;}
+.parceirosContent li					{ flex:0 0 110px; scroll-snap-align:start;}
+
+@media (max-width: 1000px) {
+	.home-grid							{ grid-template-columns:1fr; gap:0; padding:20px 0 0;} /* horizontal já vem do padding do #main, não duplica */
+	.home-card							{ margin-bottom:35px;}
+	.home-card:last-child				{ margin-bottom:0;}
+	.home-card__body					{ min-height:0;}
+
+	/* Imagens dos cards e bloco cinza de parceiros sangram até a borda do
+	   celular (margem negativa = padding do #main) e ficam todos com a
+	   mesma altura, pra alinhar visualmente os 3 cards. */
+	.home-card__body > a > img			{ width:calc(100% + 30px); max-width:calc(100% + 30px); height:140px; object-fit:cover; margin:25px -15px;}
+
+	/* No mobile o bloco cinza ocupa a tela toda; em vez de manter o mesmo
+	   cluster de 300px do desktop (centralizado, sobrando muita margem cinza
+	   nas laterais), as setas ficam fixas perto da borda e as logos
+	   continuam centralizadas — sobra mais respiro natural entre elas. */
+	#main .parceirosHome				{ display:flex; align-items:center; justify-content:center; width:calc(100% + 30px); max-width:none; height:140px; margin:25px -15px; padding:0; box-sizing:border-box;}
+	.parceirosContent					{ gap:40px; width:260px; margin:0 auto;} /* desktop fica com 10px/230px (cabe justo nos 300px da coluna); mobile tem espaço de sobra */
+	.parceirosHome .btnPrev,
+	.parceirosHome .btnNext				{ top:50%; transform:translateY(-50%);}
+	.parceirosHome .btnPrev				{ left:10px;}
+	.parceirosHome .btnNext				{ right:10px;}
+}

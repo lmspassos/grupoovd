@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="adopt-website-id" content="5b1d1b75-3c6e-4662-9605-55a54ea15086" />
+	<title>Grupo OVD</title>
+
+	<script src="//tag.goadopt.io/injector.js?website_code=5b1d1b75-3c6e-4662-9605-55a54ea15086" class="adopt-injector"></script>
+
+	<link rel="stylesheet" href="css/ovd.css" />
+	<link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body class="home">
+
+	<div id="container">
+		<!-- Header do site (injetado via fetch por js/home.js) -->
+		<div id="header"></div>
+
+		<!--
+			Banner principal. Fora do #main de propósito: assim ele não
+			depende do padding lateral do #main (nem da margem negativa que
+			cancela esse padding) pra ocupar 100% da largura no mobile — ver
+			css/home.css.  Cada slide é um <li>: troque a imagem em
+			data-desktop / data-mobile (ou <source>/<img> abaixo) para
+			trocar o banner. js/home.js só liga o funcionamento (troca
+			automática, bolinhas, arrastar) — não busca dados por fetch,
+			então não depende de nenhum arquivo externo carregar certo.
+		-->
+		<div id="banner">
+			<div class="banner" role="region" aria-roledescription="carousel" aria-label="Banner principal">
+				<ul class="banner__track">
+					<li class="banner__slide is-active">
+						<picture>
+							<source media="(max-width: 1000px)" srcset="arquivos/banner_0000.png" />
+							<img src="arquivos/banner_0000.png" alt="" />
+						</picture>
+					</li>
+					<li class="banner__slide">
+						<picture>
+							<source media="(max-width: 1000px)" srcset="arquivos/banner_06.jpg" />
+							<img src="arquivos/banner_06.jpg" alt="" />
+						</picture>
+					</li>
+					<li class="banner__slide">
+						<picture>
+							<source media="(max-width: 1000px)" srcset="arquivos/banner_01.jpg" />
+							<img src="arquivos/banner_01.jpg" alt="" />
+						</picture>
+					</li>
+					<li class="banner__slide">
+						<picture>
+							<source media="(max-width: 1000px)" srcset="arquivos/banner_02.jpg" />
+							<img src="arquivos/banner_02.jpg" alt="" />
+						</picture>
+					</li>
+					<li class="banner__slide">
+						<picture>
+							<source media="(max-width: 1000px)" srcset="arquivos/banner_03.jpg" />
+							<img src="arquivos/banner_03.jpg" alt="" />
+						</picture>
+					</li>
+				</ul>
+				<button type="button" class="banner__arrow banner__arrow--prev" aria-label="Slide anterior"></button>
+				<button type="button" class="banner__arrow banner__arrow--next" aria-label="Próximo slide"></button>
+				<div class="banner__dots">
+					<button type="button" class="banner__dot is-active" aria-label="Ir para o slide 1"></button>
+					<button type="button" class="banner__dot" aria-label="Ir para o slide 2"></button>
+					<button type="button" class="banner__dot" aria-label="Ir para o slide 3"></button>
+					<button type="button" class="banner__dot" aria-label="Ir para o slide 4"></button>
+					<button type="button" class="banner__dot" aria-label="Ir para o slide 5"></button>
+				</div>
+			</div>
+		</div>
+
+		<main id="main">
+			<section class="home-grid">
+
+				<article class="home-card">
+					<div class="home-card__body">
+						<h2>Grupo OVD</h2>
+						<a href="institucional.html"><img src="imgs/grupo_ovd.jpg" alt="Sede do Grupo OVD" /></a>
+						<p>Com 55 anos de tradição no mercado de ferragens e ferramentas, estamos presentes em todo o país, oferecendo a você a certeza dos melhores negócios.</p>
+					</div>
+					<a class="linkMais" href="institucional.html">CLIQUE E <span>CONHEÇA</span></a>
+				</article>
+
+				<article class="home-card">
+					<div class="home-card__body">
+						<h2>Parceiros</h2>
+						<div class="parceirosHome">
+							<a class="btnPrev" href="#" aria-label="Parceiro anterior"></a>
+							<ul class="parceirosContent">
+								<li><a href="parceiros.html"><img src="arquivos/logo_lonax.png" alt="Lonax" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_Kf.png" alt="K&amp;F" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_jacto.png" alt="Jacto" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_henkel.png" alt="Henkel" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_makita.png" alt="Makita" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_morlan.png" alt="Morlan" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_norton.png" alt="Norton" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_pado.png" alt="Pado" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_starret.png" alt="Starret" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_gerdau.png" alt="Gerdau" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_3m.png" alt="3M" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_esab.png" alt="Esab" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_bosch.png" alt="Bosch" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_dormer.png" alt="Dormer" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_brascola.png" alt="Brascola" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_nova.png" alt="Nova Motores" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_gmeg.png" alt="GMEG" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_ridgid.png" alt="Ridgid" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_papaiz.png" alt="Papaiz" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_alpargatas.png" alt="Alpargatas" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_vulcabras.png" alt="Vulcabras" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_nortene.png" alt="Nortene" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_belzer.png" alt="Belzer" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_vipal.png" alt="Borrachas Vipal" /></a></li>
+								<li><a href="parceiros.html"><img src="arquivos/logo_tek.png" alt="Tekbond" /></a></li>
+							</ul>
+							<a class="btnNext" href="#" aria-label="Próximo parceiro"></a>
+						</div>
+						<p>Contamos com fortes parcerias que garantem um dos mix mais completos de ferragens e ferramentas, disponibilizando as melhores marcas do setor.</p>
+					</div>
+					<a class="linkMais" href="parceiros.html">SAIBA <span>MAIS</span></a>
+				</article>
+
+				<article class="home-card">
+					<div class="home-card__body">
+						<h2>Trabalhe Conosco</h2>
+						<a href="trabalhe.html"><img src="imgs/trabalhe_conosco.jpg" alt="Trabalhe no Grupo OVD" /></a>
+						<p>Se você procura uma empresa com oportunidades e que está em constante crescimento, venha fazer parte do nosso time e construa sua carreira com a gente!</p>
+					</div>
+					<a class="linkMais" href="trabalhe.html">VENHA PRA <span>OVD</span></a>
+				</article>
+
+			</section>
+
+			<!-- Marcas do grupo (injetado via fetch por js/home.js) -->
+			<div id="boxMarcas"></div>
+		</main>
+
+		<!-- Footer do site (injetado via fetch por js/home.js) -->
+		<div id="footer"></div>
+	</div>
+
+	<script type="module" src="js/home.js"></script>
+</body>
+</html>

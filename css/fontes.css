@@ -1,0 +1,48 @@
+
+@font-face {
+    font-family: 'PTSansBoldItalic';
+    src: url('fontes/PTS76F-webfont.eot');
+    src: url('fontes/PTS76F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontes/PTS76F-webfont.woff') format('woff'),
+         url('fontes/PTS76F-webfont.ttf') format('truetype'),
+         url('fontes/PTS76F-webfont.svg#PTSansBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansBold';
+    src: url('fontes/PTS75F-webfont.eot');
+    src: url('fontes/PTS75F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontes/PTS75F-webfont.woff') format('woff'),
+         url('fontes/PTS75F-webfont.ttf') format('truetype'),
+         url('fontes/PTS75F-webfont.svg#PTSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansItalic';
+    src: url('fontes/PTS56F-webfont.eot');
+    src: url('fontes/PTS56F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontes/PTS56F-webfont.woff') format('woff'),
+         url('fontes/PTS56F-webfont.ttf') format('truetype'),
+         url('fontes/PTS56F-webfont.svg#PTSansItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PTSansRegular';
+    src: url('fontes/PTS55F-webfont.eot');
+    src: url('fontes/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fontes/PTS55F-webfont.woff') format('woff'),
+         url('fontes/PTS55F-webfont.ttf') format('truetype'),
+         url('fontes/PTS55F-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

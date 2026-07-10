@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Grupo OVD</title>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/ovd.css"  />
+
+<!-- JS -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jcarousellite.js"></script>
+<script type="text/javascript" src="js/jquery.jqtransform.js"></script>
+<script type="text/javascript" src="js/ovd_utils.js"></script>
+
+
+</head>
+
+<body class="interna">
+<div id="container-interna">
+
+<div id="header"></div>
+
+
+<div id="main">
+
+	<div class="breadcrumbs">
+    	<ul>
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="#">Nossas Marcas</a></li>
+            <li><a href="#">Distribuição Exclusiva</a></li>
+            <li class="atual">Komelon</li>
+        
+        </ul>
+    </div>
+
+    
+	<h5>DISTRIBUIÇÃO EXCLUSIVA</h5>
+    <h1><img src="imgs/logo_komelon.png" alt="Komelon" title="Komelon" /></h1>
+	<div class="colunas">	
+    	
+  		 <p class="destaque">Trenas Premium, qualidade e durabilidade em instrumentos de medição</p>
+        
+        <p>
+       	As trenas Komelon são reconhecidas mundialmente pela alta qualidade, durabilidade e design inovador. São produtos Premium que marcam a evolução de linhas convencionais de medição, propondo soluções diferenciadas.
+		</p>
+        
+       
+        <h2 class="subTitleProd">Produtos<span></span></h2>
+        <p>
+     	Seu mix está dividido entre trenas curtas e longas, com fita de aço e fibra de vidro, produzidas com a mais alta tecnologia aplicada a produtos.
+        </p>
+        
+    
+    </div>    
+
+
+	<div class="colunas colRight">
+    	
+    	
+        <img src="imgs/komelon_img.jpg"   alt="Komelon" title="Komelon" />
+        
+      
+        
+    
+    </div>
+    
+
+
+
+    
+    <div id="boxMarcas"></div>
+    
+    
+    
+	
+
+</div>
+
+<div id="footer"></div>
+
+</div>
+
+</body>
+</html>

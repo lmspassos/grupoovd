@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Grupo OVD</title>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/ovd.css"  />
+
+<!-- JS -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jcarousellite.js"></script>
+<script type="text/javascript" src="js/jquery.jqtransform.js"></script>
+<script type="text/javascript" src="js/ovd_utils.js"></script>
+
+</head>
+
+<body class="interna">
+<div id="container-interna">
+
+<div id="header"></div>
+
+
+<div id="main">
+
+	<div class="breadcrumbs">
+    	<ul>
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="#">Nossas Marcas</a></li>
+            <li><a href="#">Distribuição Exclusiva</a></li>
+            <li class="atual">Stabila</li>
+        
+        </ul>
+    </div>
+
+    
+	
+    <h5>DISTRIBUIÇÃO EXCLUSIVA</h5>
+    <h1><img src="imgs/logo_stabila.png" alt="Stabila" title="Stabila" /></h1>
+	<div class="colunas">	
+    	
+  		 <p class="destaque">Precisão e máxima qualidade em níveis e medidores a laser </p>
+        
+        <p>
+       Marca alemã, fundada em 1889 e pioneira em instrumentos de medição, a Stabila foi trazida para o Brasil com exclusividade pelo Grupo OVD. Reúne tecnologia e as principais tendências mundiais, em um dos mix mais modernos e expressivos do segmento de medição a laser. Conta com produtos de altíssima qualidade e precisão, voltados principalmente para a construção civil e áreas correlacionadas.
+		</p>
+        
+       
+        <h2 class="subTitleProd">Produtos<span></span></h2>
+        <p>
+     	Com a missão de ser a melhor e mais inovadora marca de instrumentos de medição de precisão do mundo, a Stabila possui mais de 60 produtos comercializados pela OVD, divididos em cinco linhas: medidores de distância a laser, níveis a laser, níveis, níveis de bolso e escalas métricas. Alguns de seus principais diferenciais são: alcance e precisão, facilitando o estabelecimento de áreas em terrenos e fundações, nivelamento de alturas e superfícies em estruturas brutas ou reformas e construções em áreas externas, sempre alicerçada no conceito de construir com exatidão, a fim de evitar retrabalhos.
+
+        </p>
+        
+    
+    </div>    
+
+
+	<div class="colunas colRight">
+    	
+    	
+        <img src="imgs/stabila.jpg"   alt="Stabila" title="Stabila" />
+        
+      
+        
+    
+    </div>
+    
+
+
+
+    
+    <div id="boxMarcas"></div>
+    
+    
+    
+	
+
+</div>
+
+<div id="footer"></div>
+
+</div>
+
+</body>
+</html>
