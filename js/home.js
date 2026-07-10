@@ -161,10 +161,19 @@ function initPartnersCarousel() {
 	resetTimer();
 }
 
+function initFooter() {
+	const yearEl = document.getElementById('footerYear');
+	if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+	document.querySelector('.footer-backtotop')?.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	includeHTML('#header', 'includes/header.html').catch((err) => console.error('Falha ao carregar header:', err));
-	includeHTML('#footer', 'includes/footer.html').catch((err) => console.error('Falha ao carregar footer:', err));
 
 	initBanner();
 	initPartnersCarousel();
+	initFooter();
 });

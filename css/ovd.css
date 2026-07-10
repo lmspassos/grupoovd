@@ -32,6 +32,8 @@
 	--color-gray-500:					#dddddd;
 	--color-gray-600:					#cccccc;
 	--color-gray-700:					#bbbbbb;
+	--color-gray-800:					#2a2a2a;
+	--color-gray-900:					#1c1c1c;
 	--color-gray-header-start:			#b3b3b3;
 	--color-gray-input-bg:				#e1e1e1;
 	--color-gray-select-hover:			#ededed;
@@ -344,25 +346,43 @@ div.selectContato						{ padding-bottom:20px; z-index:10; }
 
 
 
-/* FOOTER 
+/* FOOTER
+   Full-bleed (largura total da tela), com um padrão sutil de linhas
+   diagonais no fundo (via repeating-linear-gradient, sem imagem) — o
+   conteúdo em si fica numa coluna de 980px centralizada, igual ao #main.
 ========================================================================== */
-#footer									{ display:block; width:980px; position:relative; margin:0 auto; background:var(--color-white);}
+#footer									{ display:block; width:100%; position:relative; background:var(--color-gray-900); background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 1px, transparent 1px 64px); color:var(--color-gray-600);}
 
-#footerContent							{ display:block; width:980px; height:100px; position:relative; margin:0 auto;  font-family:'PTSansRegular', Verdana; font-size:12px; background:var(--color-gray-50);}
-#footerContent ul						{ display:block; position:relative; top:37px; list-style:none;}
-#footerContent ul li						{ display:block; height:12px; line-height:16px; float:left; margin:3px; padding:0 10px; border-left:1px solid var(--color-text);}
-#footerContent ul li:first-child			{ border:none;}
-#footerContent ul li a						{ color:var(--color-text); text-decoration:none; }
-#footerContent ul li a:hover				{ color:var(--color-black);}
+#footerContent							{ display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr 1fr; gap:30px; width:980px; margin:0 auto; padding:60px 0 40px; box-sizing:border-box; font-family:'PTSansRegular', Verdana; font-size:13px; position:relative;}
 
-.contatoFooter							{ display:block; position:absolute; right:20px; top:25px; }
-.contatoFooter span						{ display:block; font-size:11px;  color:var(--color-text); text-shadow:1px 1px var(--color-white);}
+.footer-brand__logo					{ display:inline-block; padding:8px 14px; border-radius:8px; background:var(--color-white);}
+.footer-brand__logo img				{ display:block; width:110px; height:auto;}
+.footer-brand__tagline					{ margin:18px 0 20px; max-width:260px; line-height:1.6; color:var(--color-gray-600);}
 
-/* asinatura/direitos */
-.sign									{ display:block;width:980px;height:30px; position:relative; margin:10px auto; font-size:10px; color:var(--color-text);}
+.footer-social							{ display:flex; gap:10px; list-style:none; margin:0 0 30px; padding:0;}
+.footer-social a						{ display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; border:1px solid var(--color-gray-700); color:var(--color-white); transition:background .15s ease, border-color .15s ease;}
+.footer-social a:hover					{ background:var(--color-yellow); border-color:var(--color-yellow); color:var(--color-black);}
 
-.commcepta								{ display:block; width:70px; height:15px; position:absolute; top:0; right:0; text-indent:-3000px; overflow:hidden; background:url(../imgs/commcepta.png) top no-repeat;}
-.commcepta:hover						{ background-position:0 -15px;}
+.footer-backtotop						{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px; background:transparent; border:1px solid var(--color-gray-700); border-radius:4px; color:var(--color-white); font-family:'PTSansBold', Verdana; font-size:11px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:border-color .15s ease, color .15s ease;}
+.footer-backtotop:hover				{ border-color:var(--color-yellow); color:var(--color-yellow);}
+
+.footer-col								{ font-size:14px;}
+.footer-col h4,
+.contatoFooter h4						{ margin:0 0 20px; font-size:15px; color:var(--color-white); font-family:'PTSansBold', Verdana; text-transform:none; letter-spacing:0; padding:0;}
+.footer-col ul							{ list-style:none; margin:0; padding:0;}
+.footer-col ul li						{ margin-bottom:14px;}
+.footer-col ul li a					{ color:var(--color-gray-600); text-decoration:none; transition:color .15s ease;}
+.footer-col ul li a:hover				{ color:var(--color-yellow);}
+
+/* "Home" sublinhado, igual ao destaque de "Homepage" na referência. */
+.footer-col ul li a.is-current			{ text-decoration:underline; text-underline-offset:3px;}
+
+.contatoFooter							{ font-size:13px;}
+.contatoFooter span						{ display:block; margin-bottom:10px; line-height:1.5; color:var(--color-gray-600);}
+.contatoFooter span strong				{ display:block; color:var(--color-white); font-family:'PTSansBold', Verdana; font-weight:normal;}
+
+/* assinatura/direitos — barra amarela full-bleed, igual ao #footer acima */
+.sign									{ display:block; width:100%; padding:14px 0; text-align:center; background:var(--color-yellow); font-size:11px; color:var(--color-black);}
 
 /* TRABALHE CONOSCO
 ========================================================================== */
@@ -515,13 +535,12 @@ iframe									{ max-width:100%;}
 	/* TABELA TRANSPARENCIA (privacidade) */
 	#main table.foobar						{ display:block; width:100%; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch;}
 
-	/* FOOTER */
-	#footer #footerContent					{ width:100%; height:auto; padding:20px 15px; box-sizing:border-box; background:var(--color-gray-100);}
-	#footer #footerContent ul				{ position:static;}
-	#footer #footerContent ul li			{ float:none; display:block; height:auto; margin:0; padding:8px 0; border-left:none; border-bottom:1px solid var(--color-gray-500);}
-	#footer .contatoFooter					{ position:static; margin-top:15px;}
-	#footer .sign							{ width:100%; box-sizing:border-box; padding:0 15px;}
-	#footer .commcepta						{ position:relative; margin-top:10px;}
+	/* FOOTER — empilha tudo numa coluna só, sem o grid de 5 colunas do desktop */
+	#footerContent							{ display:block; width:100%; padding:40px 15px; box-sizing:border-box;}
+	.footer-brand__tagline					{ max-width:none;}
+	.footer-col								{ margin-top:30px;}
+	.footer-col ul li						{ margin-bottom:10px;}
+	.contatoFooter							{ margin-top:30px;}
 }
 
 @media (max-width: 600px) {
