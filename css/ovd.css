@@ -45,6 +45,13 @@
 	--color-shadow:						rgba(0,0,0,.3);
 	--color-shadow-light:				rgba(0,0,0,.15);
 	--color-dot-inactive:				rgba(255,255,255,.6);
+
+	/* Onde o degradê amarelo→branco do body começa a aparecer nas margens
+	   (fora da coluna central) — precisa bater com header + banner, que
+	   agora ocupam a tela inteira e escondem o degradê até ali. Ver
+	   #header (110px) e .banner__track (altura fixa de 360px acima de
+	   1000px — home.css) somados. */
+	--gutter-gradient-start:			470px;
 }
 
 
@@ -55,7 +62,7 @@
 
 /* GERAL
 ========================================================================== */
-body									{ font-family:Verdana, Geneva, sans-serif; background:linear-gradient(180deg, var(--color-yellow) 0%, var(--color-white) 500px);}
+body									{ font-family:Verdana, Geneva, sans-serif; background:linear-gradient(180deg, var(--color-yellow) var(--gutter-gradient-start), var(--color-white) calc(var(--gutter-gradient-start) + 200px));}
 img										{ border:0;}
 
 /* TITULOS E TEXTOS */
@@ -459,6 +466,12 @@ iframe									{ max-width:100%;}
 @media (max-width: 1000px) {
 
 	#container, #container-interna			{ overflow-x:hidden;}
+
+	/* Mobile: header vira 80px (ver #header abaixo) e o banner passa a
+	   escalar com a largura da tela (aspect-ratio 4/5 — home.css), então
+	   o ponto onde o degradê do body começa a aparecer também precisa
+	   escalar junto (100vw * 5/4 ≈ altura real do banner). */
+	:root								{ --gutter-gradient-start: calc(80px + 125vw);}
 
 	#main									{ width:100%; max-width:980px; padding:0 15px 40px; box-sizing:border-box;}
 	#main[style*="max-width"]				{ width:100%;}

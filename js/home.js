@@ -164,7 +164,6 @@ function initPartnersCarousel() {
 document.addEventListener('DOMContentLoaded', () => {
 	includeHTML('#header', 'includes/header.html').catch((err) => console.error('Falha ao carregar header:', err));
 	includeHTML('#footer', 'includes/footer.html').catch((err) => console.error('Falha ao carregar footer:', err));
-	includeHTML('#boxMarcas', 'includes/box-marcas.html').catch((err) => console.error('Falha ao carregar boxMarcas:', err));
 
 	initBanner();
 	initPartnersCarousel();
