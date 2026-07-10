@@ -21,18 +21,18 @@
    dele: width:100% já basta pra cobrir a tela inteira, em qualquer
    tamanho de tela.
 ------------------------------------------------------------------------*/
-#banner									{ width:100%; margin:0 0 20px;}
+#banner									{ width:100%; margin:0; position:relative;}
 
-.banner									{ position:relative; border-bottom:1px solid var(--color-gray-200);}
+.banner									{ position:relative;}
 
 .banner__track							{ position:relative; aspect-ratio:var(--banner-ratio); min-height:180px; overflow:hidden; touch-action:pan-y;}
 
 /* Acima de 980px de largura, a altura NÃO acompanha mais a largura da tela
-   (senão o banner ficaria gigante em monitores largos) — trava na mesma
-   altura que ele tinha desenhado para 980px (980/360 = 360px) e a imagem
-   corta as laterais via object-fit:cover (.banner__slide img). */
+   (senão o banner ficaria gigante em monitores largos) — trava numa altura
+   fixa e a imagem corta as laterais via object-fit:cover (.banner__slide
+   img). */
 @media (min-width: 1001px) {
-	.banner__track						{ aspect-ratio:auto; height:360px;}
+	.banner__track						{ aspect-ratio:auto; height:650px;}
 }
 
 .banner__slide							{ position:absolute; inset:0; transform:translateX(100%); transition:transform .5s ease;}
@@ -44,7 +44,10 @@
 .banner__dot							{ width:12px; height:12px; padding:0; cursor:pointer; border-radius:50%; background:var(--color-dot-inactive); border:1px solid var(--color-shadow-light);}
 .banner__dot.is-active					{ background:var(--color-yellow); border-color:var(--color-yellow-hover);}
 
-.banner__arrow							{ display:flex; align-items:center; justify-content:center; position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; padding:0; border:none; border-radius:50%; background:rgba(255,255,255,.4); backdrop-filter:blur(2px); cursor:pointer; z-index:3; transition:background .15s ease;}
+/* Fixo a 175px do topo (não em 50% da altura do banner) — centraliza no
+   meio dos 350px onde a arte concentra o conteúdo real, não no meio dos
+   650px inteiros do banner. */
+.banner__arrow							{ display:flex; align-items:center; justify-content:center; position:absolute; top:175px; transform:translateY(-50%); width:44px; height:44px; padding:0; border:none; border-radius:50%; background:rgba(255,255,255,.4); backdrop-filter:blur(2px); cursor:pointer; z-index:3; transition:background .15s ease;}
 .banner__arrow:hover					{ background:rgba(255,255,255,.7);}
 .banner__arrow--prev					{ left:15px;}
 .banner__arrow--next					{ right:15px;}
@@ -58,37 +61,65 @@
 
 /* GRID DE DESTAQUES (Grupo OVD / Parceiros / Trabalhe Conosco)
 ------------------------------------------------------------------------*/
-.home-grid								{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:40px; max-width:var(--content-max); margin:0 auto; padding:20px 0 0;}
+.home-grid								{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:40px; max-width:var(--content-max); margin:0 auto; padding:20px 0 0; position:relative; z-index:1;}
 
-.home-card								{ display:flex; flex-direction:column; padding-bottom:20px;}
+/* Cada card é um bloco branco independente, flutuando por cima do banner
+   no desktop (ver overlap abaixo) — por isso ganhou fundo, raio de borda e
+   sombra próprios em vez de herdar o branco do #main. */
+.home-card								{ display:flex; flex-direction:column; background:var(--color-white); border-radius:16px; box-shadow:0 8px 24px var(--color-shadow-light); padding:25px; box-sizing:border-box; overflow:hidden;}
 .home-card__body						{ min-height:220px;}
-.home-card__body > a > img				{ display:block; margin:0 0 25px;}
+.home-card__body > a > img				{ display:block; width:100%; height:100px; object-fit:cover; border-radius:10px; margin:0 0 25px;}
 .home-card__body p						{ text-align:left; margin-bottom:25px;}
 .home-card .linkMais					{ margin-top:auto; display:block; width:100%; box-sizing:border-box; text-align:center; padding:10px 20px; background:var(--color-yellow); color:var(--color-black); border-radius:6px; transition:background .15s ease;}
 .home-card .linkMais:hover				{ background:var(--color-yellow-hover); color:var(--color-black);}
 
 /* CARROSSEL DE PARCEIROS (reaproveita .parceirosHome/.btnNext/.btnPrev de ovd.css) */
-.parceirosContent						{ display:flex; gap:10px; width:230px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;}
+.parceirosContent						{ display:flex; align-items:center; gap:10px; width:100%; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;}
 .parceirosContent::-webkit-scrollbar	{ display:none;}
 .parceirosContent li					{ flex:0 0 110px; scroll-snap-align:start;}
 
+/* Card desktop ficou mais estreito com o padding próprio (25px de cada
+   lado — ver .home-card), então o módulo cinza foi reestruturado pra
+   flexbox de verdade: setas deixam de ser absolutamente posicionadas nas
+   bordas (o que empurrava o conteúdo pro canto, sobrando margem) e viram
+   itens de um flex row centralizado — [seta][logos][seta] como um grupo só,
+   com folga simétrica dos dois lados. */
+@media (min-width: 1001px) {
+	.parceirosHome						{ display:flex; align-items:center; justify-content:center; gap:8px; height:100px; padding:0; border-radius:10px;}
+	.parceirosHome .btnPrev,
+	.parceirosHome .btnNext				{ position:relative; top:auto; left:auto; right:auto; flex:0 0 28px; height:100px;}
+	.parceirosContent					{ flex:0 0 auto; width:166px;}
+	.parceirosContent li				{ flex:0 0 78px;}
+	.parceirosHome img					{ width:78px; height:50px;}
+}
+
+/* No desktop os home-cards sobem por cima do banner (banner ficou mais alto
+   pra abrir espaço pra isso — ver .banner__track acima). #main perde o
+   fundo branco opaco só aqui, pra o banner aparecer nos vãos entre os
+   cards; o #main continua com z-index:1 (ovd.css), então os cards já
+   ganham do banner (z-index auto) sem precisar de mais nada. O conteúdo
+   real do banner (arte/texto) fica concentrado nos primeiros ~350px dos
+   650px de altura — os últimos 300px são só fundo, então cards e bolinhas
+   podem subir bastante sem cobrir nada importante. */
+@media (min-width: 1001px) {
+	#main								{ background:transparent; overflow:visible;} /* overflow:hidden (ovd.css) cortaria a sobreposição negativa do .home-grid */
+	.home-grid							{ margin-top:-220px; padding-top:0;}
+	.banner__dots						{ bottom:260px;}
+}
+
 @media (max-width: 1000px) {
 	.home-grid							{ grid-template-columns:1fr; gap:0; padding:20px 0 0;} /* horizontal já vem do padding do #main, não duplica */
-	.home-card							{ margin-bottom:35px;}
+	.home-card							{ margin-bottom:35px; padding:20px;} /* card ganhou padding próprio, reduz um pouco no mobile pra não somar demais com o padding do #main */
 	.home-card:last-child				{ margin-bottom:0;}
 	.home-card__body					{ min-height:0;}
 
-	/* Imagens dos cards e bloco cinza de parceiros sangram até a borda do
-	   celular (margem negativa = padding do #main) e ficam todos com a
-	   mesma altura, pra alinhar visualmente os 3 cards. */
-	.home-card__body > a > img			{ width:calc(100% + 30px); max-width:calc(100% + 30px); height:140px; object-fit:cover; margin:25px -15px;}
+	/* Imagem e bloco cinza de parceiros agora ficam contidos dentro do
+	   padding do próprio card (que tem fundo/cantos arredondados) — não
+	   sangram mais até a borda do celular como antes. */
+	.home-card__body > a > img			{ width:100%; max-width:100%; height:140px; object-fit:cover; margin:25px 0; border-radius:8px;}
 
-	/* No mobile o bloco cinza ocupa a tela toda; em vez de manter o mesmo
-	   cluster de 300px do desktop (centralizado, sobrando muita margem cinza
-	   nas laterais), as setas ficam fixas perto da borda e as logos
-	   continuam centralizadas — sobra mais respiro natural entre elas. */
-	#main .parceirosHome				{ display:flex; align-items:center; justify-content:center; width:calc(100% + 30px); max-width:none; height:140px; margin:25px -15px; padding:0; box-sizing:border-box;}
-	.parceirosContent					{ gap:40px; width:260px; margin:0 auto;} /* desktop fica com 10px/230px (cabe justo nos 300px da coluna); mobile tem espaço de sobra */
+	#main .parceirosHome				{ display:flex; align-items:center; justify-content:center; width:100%; max-width:none; height:140px; margin:25px 0; padding:0; box-sizing:border-box;}
+	.parceirosContent					{ gap:40px; width:260px; margin:0 auto;} /* desktop agora é fluido (100%); mobile mantém largura fixa com espaço de sobra */
 	.parceirosHome .btnPrev,
 	.parceirosHome .btnNext				{ top:50%; transform:translateY(-50%);}
 	.parceirosHome .btnPrev				{ left:10px;}

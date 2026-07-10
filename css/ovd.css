@@ -45,13 +45,6 @@
 	--color-shadow:						rgba(0,0,0,.3);
 	--color-shadow-light:				rgba(0,0,0,.15);
 	--color-dot-inactive:				rgba(255,255,255,.6);
-
-	/* Onde o degradê amarelo→branco do body começa a aparecer nas margens
-	   (fora da coluna central) — precisa bater com header + banner, que
-	   agora ocupam a tela inteira e escondem o degradê até ali. Ver
-	   #header (110px) e .banner__track (altura fixa de 360px acima de
-	   1000px — home.css) somados. */
-	--gutter-gradient-start:			470px;
 }
 
 
@@ -62,7 +55,7 @@
 
 /* GERAL
 ========================================================================== */
-body									{ font-family:Verdana, Geneva, sans-serif; background:linear-gradient(180deg, var(--color-yellow) var(--gutter-gradient-start), var(--color-white) calc(var(--gutter-gradient-start) + 200px));}
+body									{ font-family:Verdana, Geneva, sans-serif; background:var(--color-white);}
 img										{ border:0;}
 
 /* TITULOS E TEXTOS */
@@ -197,8 +190,12 @@ body.menuLock								{ overflow:hidden;}
 /*24/05/12*/
 .boxContent p							{ text-align: left;}
 
-/* parceiros */
-.parceirosHome							{ display:block; width:230px; height:71px; position:relative; margin:0 auto 25px; padding:0 35px;  background:var(--color-gray-100);}
+/* parceiros
+   width:100% (não mais um valor fixo em px) pra se adaptar à largura real
+   do card, que mudou depois do redesign dos home-cards (cada card ganhou
+   padding próprio — ver home.css); box-sizing:border-box garante que os
+   35px de padding lateral (espaço pras setas) não somem além dos 100%. */
+.parceirosHome							{ display:block; width:100%; height:71px; position:relative; margin:0 auto 25px; padding:0 35px; box-sizing:border-box; background:var(--color-gray-100);}
 .btnNext								{ display:block; width:30px; height:71px; position:absolute; top:0; right:0; text-indent:-3000px; overflow:hidden; background:var(--color-gray-100);}
 .btnPrev								{ display:block; width:30px; height:71px; position:absolute; top:0; left:0; text-indent:-3000px; overflow:hidden; background:var(--color-gray-100);}
 .btnNext:hover							{ background:var(--color-gray-400); }
@@ -208,7 +205,7 @@ body.menuLock								{ overflow:hidden;}
 .btnPrev::after							{ left:50%; transform:translate(-35%, -50%) rotate(-135deg);}
 
 .parceirosContent 						{ width:110px;}
-.parceirosHome img						{ margin:0;  width:110px; height:71px; }
+.parceirosHome img						{ margin:0; width:110px; height:71px;}
 
 
 /* MARCAS */
@@ -466,12 +463,6 @@ iframe									{ max-width:100%;}
 @media (max-width: 1000px) {
 
 	#container, #container-interna			{ overflow-x:hidden;}
-
-	/* Mobile: header vira 80px (ver #header abaixo) e o banner passa a
-	   escalar com a largura da tela (aspect-ratio 4/5 — home.css), então
-	   o ponto onde o degradê do body começa a aparecer também precisa
-	   escalar junto (100vw * 5/4 ≈ altura real do banner). */
-	:root								{ --gutter-gradient-start: calc(80px + 125vw);}
 
 	#main									{ width:100%; max-width:980px; padding:0 15px 40px; box-sizing:border-box;}
 	#main[style*="max-width"]				{ width:100%;}
